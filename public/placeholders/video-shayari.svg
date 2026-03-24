@@ -1,0 +1,12 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#E3F2EC"/>
+  <circle cx="932" cy="286" r="248" fill="#B5DCCE"/>
+  <circle cx="242" cy="1280" r="312" fill="#C8E4DB"/>
+  <rect x="126" y="178" width="948" height="1244" rx="72" fill="#F8FFFC" stroke="#9CC7B6" stroke-width="8"/>
+  <rect x="250" y="340" width="700" height="720" rx="48" fill="#7CB69E"/>
+  <path d="M524 560L740 700L524 840V560Z" fill="#F4FFFA"/>
+  <rect x="284" y="1118" width="632" height="18" rx="9" fill="#89BDA8"/>
+  <rect x="284" y="1180" width="444" height="18" rx="9" fill="#A3D1BF"/>
+  <text x="600" y="1334" text-anchor="middle" fill="#3F6E5C" font-family="Georgia, serif" font-size="68">Video Shayari</text>
+  <text x="600" y="1412" text-anchor="middle" fill="#618B7B" font-family="Arial, sans-serif" font-size="34">Poster placeholder until source clips are added</text>
+</svg>

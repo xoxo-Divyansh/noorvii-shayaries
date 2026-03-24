@@ -1,0 +1,17 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#FFF3C8"/>
+  <circle cx="948" cy="290" r="240" fill="#FFE08A"/>
+  <circle cx="264" cy="1274" r="304" fill="#F3D377"/>
+  <rect x="134" y="190" width="932" height="1220" rx="72" fill="#FFF9E8" stroke="#E6C663" stroke-width="8"/>
+  <circle cx="600" cy="668" r="182" fill="#E0A438"/>
+  <path d="M600 336V438" stroke="#E0A438" stroke-width="18" stroke-linecap="round"/>
+  <path d="M600 898V1000" stroke="#E0A438" stroke-width="18" stroke-linecap="round"/>
+  <path d="M268 668H370" stroke="#E0A438" stroke-width="18" stroke-linecap="round"/>
+  <path d="M830 668H932" stroke="#E0A438" stroke-width="18" stroke-linecap="round"/>
+  <path d="M368 434L438 504" stroke="#E0A438" stroke-width="18" stroke-linecap="round"/>
+  <path d="M762 832L832 902" stroke="#E0A438" stroke-width="18" stroke-linecap="round"/>
+  <path d="M368 902L438 832" stroke="#E0A438" stroke-width="18" stroke-linecap="round"/>
+  <path d="M762 504L832 434" stroke="#E0A438" stroke-width="18" stroke-linecap="round"/>
+  <text x="600" y="1318" text-anchor="middle" fill="#8E6723" font-family="Georgia, serif" font-size="68">Joy Studio</text>
+  <text x="600" y="1396" text-anchor="middle" fill="#A4813A" font-family="Arial, sans-serif" font-size="34">Bright placeholder artwork for celebratory poems</text>
+</svg>

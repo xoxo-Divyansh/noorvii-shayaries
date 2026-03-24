@@ -1,0 +1,12 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#F8E6E9"/>
+  <circle cx="930" cy="252" r="240" fill="#F4C1CC"/>
+  <circle cx="260" cy="1240" r="320" fill="#E8B0C1"/>
+  <rect x="136" y="188" width="928" height="1224" rx="72" fill="#FFF8F6" stroke="#E4BAC5" stroke-width="8"/>
+  <path d="M342 506C342 414 410 346 502 346H694C786 346 854 414 854 506V1074H342V506Z" fill="#E6A7B8"/>
+  <path d="M402 1128C466 1198 730 1198 794 1128" stroke="#BF6B85" stroke-width="16" stroke-linecap="round"/>
+  <path d="M484 770L600 880L716 770" stroke="#BF6B85" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M600 616C557 572 486 575 446 622C406 669 407 747 450 789L600 930L750 789C793 747 794 669 754 622C714 575 643 572 600 616Z" fill="#BF6B85"/>
+  <text x="600" y="1320" text-anchor="middle" fill="#71424F" font-family="Georgia, serif" font-size="68">Love Notes</text>
+  <text x="600" y="1398" text-anchor="middle" fill="#9C6A77" font-family="Arial, sans-serif" font-size="34">A soft visual placeholder for poetry stories</text>
+</svg>
