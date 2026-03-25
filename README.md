@@ -66,3 +66,44 @@ npm run auth:create-user -- --email you@example.com --password your-password --r
 - If `MONGODB_URI` is configured, the public app reads content from MongoDB; otherwise it falls back to the local seed data in `src/data/posts.js`.
 - Seed the database with the current local content using `npm run db:seed`.
 - Run `npm run db:setup` to validate `.env.local`, seed MongoDB, lint the repo, and verify a production build in one command.
+
+
+## 🚀 Quick Deploy to Vercel
+
+### Automated Deployment Scripts
+
+**For Windows (PowerShell):**
+```powershell
+.\deploy-vercel.ps1
+```
+
+**For Mac/Linux (Bash):**
+```bash
+chmod +x deploy-vercel.sh
+./deploy-vercel.sh
+```
+
+The automated scripts will:
+- ✅ Check and install Vercel CLI if needed
+- ✅ Authenticate with Vercel
+- ✅ Guide you through preview or production deployment
+- ✅ Provide next steps after deployment
+
+### Manual Deployment
+
+1. Install Vercel CLI: `npm i -g vercel`
+2. Login: `vercel login`
+3. Deploy: `vercel --prod`
+
+### Environment Variables for Vercel
+
+Add these in Vercel Dashboard (Settings → Environment Variables):
+- `MONGODB_URI` - Your MongoDB Atlas connection string
+- `MONGODB_DB` - `noorvi_shayari`
+- `ADMIN_SESSION_SECRET` - Generate with `openssl rand -base64 32`
+
+📚 **Full deployment guide:** See [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+---
+
+**Made with ❤️ for poetry lovers**
