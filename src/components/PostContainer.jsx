@@ -7,24 +7,42 @@ import VideoPost from "./VideoPost";
 
 export default function PostContainer({ posts = [], category }) {
   const [activeId, setActiveId] = useState(posts[0]?.id ?? null);
-  const [audioEnabled] = useState(true);
-  const [isMuted, setIsMuted] = useState(true); // Default to muted
+  const [isMuted, setIsMuted] = useState(true);
   const [animatedPosts, setAnimatedPosts] = useState(new Set());
   const containerRef = useRef(null);
   const postRefs = useRef({});
   const ratiosRef = useRef(new Map());
+  const audioRefs = useRef({}); // Store refs for all audio elements
 
-  // Initialize activeId when posts load
+  // Control audio playback for active post
   useEffect(() => {
-    if (posts.length > 0 && !activeId) {
-      console.log('🎬 Initializing activeId with first post:', posts[0].id);
-      setActiveId(posts[0].id);
-      // Trigger animation for first post after a short delay
-      setTimeout(() => {
+    // Pause all audio first
+    Object.values(audioRefs.current).forEach(audio => {
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+
+    // Play active post audio if not muted
+    if (activeId && !isMuted) {
+      const activeAudio = audioRefs.current[activeId];
+      if (activeAudio) {
+        activeAudio.muted = false;
+        activeAudio.play().catch(() => {});
+      }
+    }
+  }, [activeId, isMuted]);
+
+  // Trigger animation for first post on mount
+  useEffect(() => {
+    if (posts.length > 0 && posts[0]?.id) {
+      const timer = setTimeout(() => {
         setAnimatedPosts((prevSet) => new Set(prevSet).add(posts[0].id));
       }, 100);
+      return () => clearTimeout(timer);
     }
-  }, [posts, activeId]);
+  }, []); // Run only once on mount
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,7 +62,7 @@ export default function PostContainer({ posts = [], category }) {
           }
         });
 
-        const nextActive = maxRatio >= 0.45 ? maxId : null;
+        const nextActive = maxRatio >= 0.2 ? maxId : null;
         setActiveId((prev) => {
           if (prev !== nextActive && nextActive) {
             // Trigger animation for newly active post
@@ -117,12 +135,27 @@ export default function PostContainer({ posts = [], category }) {
         <button
           type="button"
           onClick={() => {
-            console.log('🔘 BUTTON CLICKED!');
-            console.log('Current state:', { isMuted, activeId });
             setIsMuted((prev) => {
-              const newValue = !prev;
-              console.log('🔄 isMuted changing:', prev, '→', newValue);
-              return newValue;
+              const newMuted = !prev;
+              
+              // If unmuting, play active audio immediately
+              if (!newMuted && activeId) {
+                const activeAudio = audioRefs.current[activeId];
+                if (activeAudio) {
+                  activeAudio.muted = false;
+                  activeAudio.play().catch(() => {});
+                }
+              } else {
+                // If muting, pause all audio
+                Object.values(audioRefs.current).forEach(audio => {
+                  if (audio) {
+                    audio.pause();
+                    audio.muted = true;
+                  }
+                });
+              }
+              
+              return newMuted;
             });
           }}
           className="group rounded-full border border-white/40 bg-white/95 px-5 py-2.5 text-sm font-semibold text-[var(--foreground)] shadow-[0_8px_24px_rgba(124,82,60,0.08)] backdrop-blur-xl transition-all hover:shadow-[0_12px_32px_rgba(124,82,60,0.14)] hover:scale-[1.02]"
@@ -164,12 +197,9 @@ export default function PostContainer({ posts = [], category }) {
             postProps = {
               text: post.text,
               image: post.image,
-              audioSrc: post.audio,
               downloadHref: post.downloadHref ?? post.image,
               downloadLabel: post.downloadLabel,
               isActive,
-              audioEnabled,
-              isMuted,
               mood: post.mood,
               title: post.title,
             };
@@ -182,8 +212,6 @@ export default function PostContainer({ posts = [], category }) {
               downloadHref: post.downloadHref ?? post.video ?? post.poster,
               downloadLabel: post.downloadLabel,
               isActive,
-              audioEnabled,
-              isMuted,
               mood: post.mood,
               title: post.title,
             };
@@ -191,12 +219,9 @@ export default function PostContainer({ posts = [], category }) {
             PostComponent = TextPost;
             postProps = {
               text: post.text,
-              audioSrc: post.audio,
               downloadHref: post.audio,
               title: post.title,
               isActive,
-              audioEnabled,
-              isMuted,
               mood: post.mood,
             };
           }
@@ -221,6 +246,20 @@ export default function PostContainer({ posts = [], category }) {
               }}
             >
               <PostComponent {...postProps} />
+              
+              {/* Hidden audio element for this post */}
+              {post.audio && (
+                <audio
+                  ref={(el) => {
+                    if (el) audioRefs.current[post.id] = el;
+                  }}
+                  loop
+                  preload="metadata"
+                  muted
+                >
+                  <source src={post.audio} type="audio/mpeg" />
+                </audio>
+              )}
             </div>
           );
         })}
