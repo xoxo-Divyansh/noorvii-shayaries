@@ -8,6 +8,20 @@ const nextConfig = {
       },
     ],
   },
+  // Ensure static files are served correctly
+  async headers() {
+    return [
+      {
+        source: '/audio/:path*',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'audio/mpeg',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
