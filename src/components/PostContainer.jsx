@@ -8,11 +8,23 @@ import VideoPost from "./VideoPost";
 export default function PostContainer({ posts = [], category }) {
   const [activeId, setActiveId] = useState(posts[0]?.id ?? null);
   const [audioEnabled] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true); // Default to muted
   const [animatedPosts, setAnimatedPosts] = useState(new Set());
   const containerRef = useRef(null);
   const postRefs = useRef({});
   const ratiosRef = useRef(new Map());
+
+  // Initialize activeId when posts load
+  useEffect(() => {
+    if (posts.length > 0 && !activeId) {
+      console.log('🎬 Initializing activeId with first post:', posts[0].id);
+      setActiveId(posts[0].id);
+      // Trigger animation for first post after a short delay
+      setTimeout(() => {
+        setAnimatedPosts((prevSet) => new Set(prevSet).add(posts[0].id));
+      }, 100);
+    }
+  }, [posts, activeId]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -104,7 +116,15 @@ export default function PostContainer({ posts = [], category }) {
 
         <button
           type="button"
-          onClick={() => setIsMuted((prev) => !prev)}
+          onClick={() => {
+            console.log('🔘 BUTTON CLICKED!');
+            console.log('Current state:', { isMuted, activeId });
+            setIsMuted((prev) => {
+              const newValue = !prev;
+              console.log('🔄 isMuted changing:', prev, '→', newValue);
+              return newValue;
+            });
+          }}
           className="group rounded-full border border-white/40 bg-white/95 px-5 py-2.5 text-sm font-semibold text-[var(--foreground)] shadow-[0_8px_24px_rgba(124,82,60,0.08)] backdrop-blur-xl transition-all hover:shadow-[0_12px_32px_rgba(124,82,60,0.14)] hover:scale-[1.02]"
         >
           <span className="flex items-center gap-2">
