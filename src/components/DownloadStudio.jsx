@@ -78,7 +78,7 @@ export default function DownloadStudio({
           Image, video, and audio — all in one place
         </h2>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-[var(--muted)]">
-          Choose your preferred format and download. Perfect for stories, reels, or status updates.
+          Choose your format and download. Perfect for stories, reels, or status updates.
         </p>
 
         <div className="mt-6 grid gap-4">

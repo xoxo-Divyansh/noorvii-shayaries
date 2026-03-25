@@ -9,7 +9,7 @@ export default function CategoryGrid({ categories = [] }) {
           Browse by Mood
         </p>
         <h2 className="font-[var(--font-playfair)] text-3xl text-[var(--foreground)] md:text-4xl">
-          Choose your feeling, discover its poetry
+          Choose your vibe, find your words
         </h2>
       </div>
 

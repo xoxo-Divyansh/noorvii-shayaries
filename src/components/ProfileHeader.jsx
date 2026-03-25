@@ -5,13 +5,13 @@ export default function ProfileHeader() {
     <section className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] md:items-center lg:gap-8">
       <div className="paper-panel-strong rounded-[2.2rem] px-6 py-8 shadow-[0_24px_80px_rgba(124,82,60,0.12)] md:px-8 md:py-10">
         <div className="mb-4 inline-flex rounded-full bg-[#fff4eb] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#8b5d4a]">
-          Noorvi Poetry and Moments
+          Noorvi Poetry & Moments
         </div>
         <h1 className="max-w-[18ch] font-[var(--font-playfair)] text-4xl leading-tighter tracking-tighter text-start text-[var(--foreground)] md:text-[4.5rem]">
           Where words become feelings, and feelings become memories
         </h1>
         <p className="mt-5 max-w-xl text-sm leading-7 text-[var(--muted)] md:text-base">
-          A collection of heartfelt shayari and stories for every mood. Beautiful words for every moment, ready to download and share on your stories.
+          Heartfelt shayari for every mood. Beautiful words for every moment, ready to share on your stories.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -44,7 +44,7 @@ export default function ProfileHeader() {
           Poetry. Emotions. Stories.
         </p>
         <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-          Words from the heart, crafted for your soul. Curated shayari collections perfect for reels, stories, and quiet moments.
+          Words from the heart, crafted for your soul. Curated shayari perfect for reels, stories, and quiet moments.
         </p>
       </div>
     </section>
