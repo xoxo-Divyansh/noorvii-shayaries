@@ -87,16 +87,16 @@ export default function PostContainer({ posts = [], category }) {
     return (
       <div className="paper-panel-strong flex min-h-[40vh] flex-col items-center justify-center gap-4 rounded-[2rem] px-6 py-12 text-center shadow-[0_24px_80px_rgba(124,82,60,0.12)]">
         <p className="font-[var(--font-playfair)] text-3xl text-[var(--foreground)]">
-          No poetry yet for this mood
+          No poetry here yet
         </p>
         <p className="max-w-xl text-sm leading-7 text-[var(--muted)]">
-          New shayari will be added here soon
+          New shayari coming soon
         </p>
         <Link
           href="/"
           className="rounded-full bg-[#3c2c24] px-5 py-3 text-sm font-semibold text-white"
         >
-          Back to Home
+          Back Home
         </Link>
       </div>
     );
@@ -167,14 +167,14 @@ export default function PostContainer({ posts = [], category }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
                 </svg>
-                Muted
+                Silent
               </>
             ) : (
               <>
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                 </svg>
-                Sound On
+                Playing
               </>
             )}
           </span>
