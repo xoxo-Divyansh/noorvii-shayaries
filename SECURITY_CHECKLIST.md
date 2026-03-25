@@ -37,7 +37,7 @@ Confirmed working:
 
 ### Development (.env.local)
 ```env
-MONGODB_URI=mongodb+srv://NEW_USER:NEW_PASSWORD@cluster.mongodb.net/noorvi_shayari?retryWrites=true&w=majority
+MONGODB_URI=<your-mongodb-connection-string>
 MONGODB_DB=noorvi_shayari
 ADMIN_SESSION_SECRET=<generated-secret-from-script>
 ```
