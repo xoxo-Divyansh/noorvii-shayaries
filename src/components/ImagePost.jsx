@@ -18,14 +18,35 @@ export default function ImagePost({
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio || !audioSrc) return;
+    
+    console.log('🎵 ImagePost Audio Debug:', {
+      hasAudio: !!audio,
+      audioSrc,
+      isActive,
+      audioEnabled,
+      isMuted,
+      shouldPlay: isActive && audioEnabled && !isMuted
+    });
+
+    if (!audio || !audioSrc) {
+      console.log('⚠️ No audio element or source');
+      return;
+    }
 
     if (isActive && audioEnabled && !isMuted) {
-      audio
-        .play()
-        .then(() => {})
-        .catch(() => {});
+      console.log('▶️ Attempting to play audio:', audioSrc);
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('✅ Audio playing successfully:', audioSrc);
+          })
+          .catch((error) => {
+            console.error('❌ Audio play failed:', error.name, error.message);
+          });
+      }
     } else {
+      console.log('⏸️ Pausing audio');
       audio.pause();
       audio.currentTime = 0;
     }
@@ -150,7 +171,7 @@ export default function ImagePost({
       </div>
 
       {audioSrc ? (
-        <audio ref={audioRef} loop preload="none" muted={!isMuted}>
+        <audio ref={audioRef} loop preload="metadata" muted={isMuted}>
           <source src={audioSrc} type="audio/mpeg" />
         </audio>
       ) : null}
