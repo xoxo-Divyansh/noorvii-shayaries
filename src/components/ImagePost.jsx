@@ -150,7 +150,7 @@ export default function ImagePost({
       </div>
 
       {audioSrc ? (
-        <audio ref={audioRef} loop preload="none" muted={isMuted}>
+        <audio ref={audioRef} loop preload="none" muted={!isMuted}>
           <source src={audioSrc} type="audio/mpeg" />
         </audio>
       ) : null}

@@ -74,7 +74,7 @@ export default function VideoPost({
               <video
                 ref={videoRef}
                 src={video}
-                muted={isMuted || !audioEnabled}
+                muted={!isMuted || !audioEnabled}
                 loop
                 playsInline
                 onError={() => setShowPoster(true)}
